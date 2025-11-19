@@ -3,34 +3,659 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riad du Café - L'Art du Café Marocain Authentique</title>
-    <meta name="description" content="Découvrez le Riad du Café, un café-restaurant marocain alliant tradition et modernité. Savourez nos spécialités et réservez votre table en ligne.">
-
-    <!-- Google Fonts -->
+    <title>Home</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-height: 4rem;
+            --terre-cuite: #A0522D;
+            --sable: #F4A460;
+            --bleu-majorelle: #5680E9;
+            --blanc-casse: #F5F5F5;
+            --dore: #D4AF37;
+            --brun-fonce: #3E2723;
+            --white-color: #FFF;
+            --body-font: 'Montserrat', sans-serif;
+            --title-font: 'Playfair Display', serif;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--blanc-casse);
+            color: var(--brun-fonce);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-family: var(--title-font);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--terre-cuite);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav__logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--dore), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav__logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav__link {
+            color: var(--brun-fonce);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav__link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--terre-cuite);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav__link:hover {
+            color: var(--terre-cuite);
+        }
+
+        .nav__link:hover::before {
+            width: 100%;
+        }
+
+        .nav__toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--brun-fonce);
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(160, 82, 45, 0.9), rgba(62, 39, 35, 0.8)),
+                        url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=1920&h=1080&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        .hero__container {
+            color: var(--white-color);
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero__title {
+            font-family: var(--title-font);
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--terre-cuite);
+            color: var(--white-color);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--terre-cuite);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(160, 82, 45, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .button:hover {
+            background: transparent;
+            color: var(--white-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(160, 82, 45, 0.6);
+        }
+
+        /* SECTION */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section__title {
+            font-family: var(--title-font);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--terre-cuite);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section__title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--dore), transparent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ABOUT */
+        .about__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about__img {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .about__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about__img:hover img {
+            transform: scale(1.1);
+        }
+
+        .about__description {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* IMAGES LOURDES - SABOTAGE PERFORMANCE */
+        .heavy-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .heavy-images img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* MENU */
+        .menu__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu__card {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--sable);
+            transition: all 0.3s ease;
+        }
+
+        .menu__card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--dore);
+        }
+
+        .menu__card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .menu__icon {
+            font-size: 2rem;
+            color: var(--terre-cuite);
+            margin-right: 1rem;
+        }
+
+        .menu__card-title {
+            font-family: var(--title-font);
+            font-size: 1.5rem;
+            color: var(--brun-fonce);
+        }
+
+        .menu__list {
+            list-style: none;
+        }
+
+        .menu__list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .menu__list li:hover {
+            padding-left: 10px;
+            color: var(--terre-cuite);
+        }
+
+        .menu__list li span {
+            font-weight: 600;
+            color: var(--dore);
+        }
+
+        /* GALLERY */
+        .gallery__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery__img {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            aspect-ratio: 1;
+        }
+
+        .gallery__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery__img::before {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .gallery__img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(160, 82, 45, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery__img:hover::before,
+        .gallery__img:hover::after {
+            opacity: 1;
+        }
+
+        .gallery__img:hover img {
+            transform: scale(1.2);
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox__content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox__content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+        }
+
+        .lightbox__close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* BOOKING */
+        .booking__form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white-color);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form__group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form__group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--brun-fonce);
+        }
+
+        .form__group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form__group input:focus {
+            outline: none;
+            border-color: var(--terre-cuite);
+            box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.1);
+        }
+
+        .form__error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form__success {
+            background: #27ae60;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--brun-fonce);
+            color: var(--blanc-casse);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer__title {
+            color: var(--sable);
+            font-family: var(--title-font);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer__social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer__social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanc-casse);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer__social a:hover {
+            background: var(--dore);
+            transform: translateY(-5px);
+        }
+
+        .footer__form {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .footer__form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .footer__form button {
+            background: var(--terre-cuite);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .footer__form button:hover {
+            background: var(--dore);
+        }
+
+        .footer__copy {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            .nav__list {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav__list.show-menu {
+                left: 0;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+
+            .booking__form {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- HEADER -->
     <header class="header">
-        <nav class="nav container">
+        <nav class="nav">
             <a href="#" class="nav__logo">Riad du Café</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#about" class="nav__link">À Propos</a></li>
-                    <li class="nav__item"><a href="#menu" class="nav__link">Menu</a></li>
-                    <li class="nav__item"><a href="#gallery" class="nav__link">Galerie</a></li>
-                    <li class="nav__item"><a href="#booking" class="nav__link">Réservation</a></li>
-                </ul>
-            </div>
+            <ul class="nav__list" id="nav-menu">
+                <li><a href="#about" class="nav__link">À Propos</a></li>
+                <li><a href="#menu" class="nav__link">Menu</a></li>
+                <li><a href="#gallery" class="nav__link">Galerie</a></li>
+                <li><a href="#booking" class="nav__link">Réservation</a></li>
+            </ul>
             <div class="nav__toggle" id="nav-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -38,125 +663,150 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
         <section class="hero">
-            <div class="hero__container container">
-                <h1 class="hero__title">L'Art du Café Marocain Authentique</h1>
-                <p class="hero__subtitle">Une immersion sensorielle au cœur de la tradition marocaine.</p>
+            <div class="hero__container">
+                <div class="hero__title">L'Art du Café Marocain Authentique</div>
+                <div class="hero__subtitle">Une immersion sensorielle au cœur de la tradition marocaine</div>
                 <a href="#booking" class="button">Réserver une table</a>
             </div>
         </section>
 
-        <!-- À PROPOS -->
         <section class="about section" id="about">
-            <div class="about__container container grid">
-                <div class="about__data">
-                    <h2 class="section__title">Notre Histoire</h2>
-                    <p class="about__description">
-                        Né d'une passion pour l'hospitalité marocaine et l'arôme envoûtant du café, le Riad du Café est un havre de paix où tradition et modernité se rencontrent. Notre mission est de vous offrir une expérience inoubliable, un voyage gustatif au cœur du Maroc.
-                    </p>
-                    <p class="about__description">
-                        Nous sélectionnons avec soin des ingrédients locaux de première qualité pour vous garantir des saveurs authentiques. Chaque plat, chaque boisson est une célébration de notre héritage culinaire.
-                    </p>
+            <div class="container">
+                <div class="section__title">Notre Histoire</div>
+                
+                <!-- IMAGES LOURDES NON OPTIMISÉES - SABOTAGE PERFORMANCE -->
+                <div class="heavy-images">
+                    <img src="https://images.unsplash.com/photo-1601897704119-ccb0d9b8876f?q=100&w=4000&h=3000">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=100&w=4000&h=3000">
+                    <img src="https://images.unsplash.com/photo-1587132117449-609a5494f50c?q=100&w=4000&h=3000">
                 </div>
-                <div class="about__img">
-                    <img src="https://via.placeholder.com/500x400.png?text=Intérieur+du+Riad" alt="Intérieur moderne du Riad du Café" loading="lazy">
+                
+                <div class="about__container">
+                    <div class="about__data">
+                        <div class="about__description">
+                            Né d'une passion pour l'hospitalité marocaine et l'arôme envoûtant du café, le Riad du Café est un havre de paix où tradition et modernité se rencontrent. Notre mission est de vous offrir une expérience inoubliable, un voyage gustatif au cœur du Maroc.
+                        </div>
+                        <div class="about__description">
+                            Nous sélectionnons avec soin des ingrédients locaux de première qualité pour vous garantir des saveurs authentiques. Chaque plat, chaque boisson est une célébration de notre héritage culinaire.
+                        </div>
+                    </div>
+                    <div class="about__img">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- MENU -->
         <section class="menu section" id="menu">
-            <h2 class="section__title">Notre Menu</h2>
-            <div class="menu__container container grid">
-                <!-- Catégorie 1: Cafés -->
-                <div class="menu__card">
-                    <div class="menu__card-header">
-                        <i class="fas fa-coffee menu__icon"></i>
-                        <h3 class="menu__card-title">Cafés Spéciaux</h3>
+            <div class="container">
+                <div class="section__title">Notre Menu</div>
+                <div class="menu__container">
+                    <div class="menu__card">
+                        <div class="menu__card-header">
+                            <i class="fas fa-coffee menu__icon"></i>
+                            <div class="menu__card-title">Cafés Spéciaux</div>
+                        </div>
+                        <ul class="menu__list">
+                            <li>Café Nous-Nous <span>3.50€</span></li>
+                            <li>Café aux épices <span>4.00€</span></li>
+                            <li>Expresso Royal <span>4.50€</span></li>
+                        </ul>
                     </div>
-                    <ul class="menu__list">
-                        <li>Café Nous-Nous <span>3.50€</span></li>
-                        <li>Café aux épices (cannelle, cardamome) <span>4.00€</span></li>
-                        <li>Expresso Royal (avec une touche d'eau de fleur d'oranger) <span>4.50€</span></li>
-                    </ul>
-                </div>
-                <!-- Catégorie 2: Thés -->
-                <div class="menu__card">
-                    <div class="menu__card-header">
-                        <i class="fas fa-leaf menu__icon"></i>
-                        <h3 class="menu__card-title">Thés Marocains</h3>
+                    <div class="menu__card">
+                        <div class="menu__card-header">
+                            <i class="fas fa-leaf menu__icon"></i>
+                            <div class="menu__card-title">Thés Marocains</div>
+                        </div>
+                        <ul class="menu__list">
+                            <li>Thé à la menthe traditionnel <span>3.00€</span></li>
+                            <li>Thé vert à l'absinthe <span>3.50€</span></li>
+                            <li>Infusion verveine & citronnelle <span>3.50€</span></li>
+                        </ul>
                     </div>
-                    <ul class="menu__list">
-                        <li>Thé à la menthe traditionnel <span>3.00€</span></li>
-                        <li>Thé vert à l'absinthe <span>3.50€</span></li>
-                        <li>Infusion verveine & citronnelle <span>3.50€</span></li>
-                    </ul>
-                </div>
-                <!-- Catégorie 3: Pâtisseries -->
-                <div class="menu__card">
-                     <div class="menu__card-header">
-                        <i class="fas fa-cookie-bite menu__icon"></i>
-                        <h3 class="menu__card-title">Pâtisseries Fines</h3>
+                    <div class="menu__card">
+                        <div class="menu__card-header">
+                            <i class="fas fa-cookie-bite menu__icon"></i>
+                            <div class="menu__card-title">Pâtisseries Fines</div>
+                        </div>
+                        <ul class="menu__list">
+                            <li>Corne de gazelle <span>2.00€</span></li>
+                            <li>Ghriba aux amandes <span>1.50€</span></li>
+                            <li>Chebakia au miel <span>2.50€</span></li>
+                        </ul>
                     </div>
-                    <ul class="menu__list">
-                        <li>Corne de gazelle <span>2.00€</span></li>
-                        <li>Ghriba aux amandes <span>1.50€</span></li>
-                        <li>Chebakia au miel et sésame <span>2.50€</span></li>
-                    </ul>
-                </div>
-                <!-- Catégorie 4: Plats -->
-                <div class="menu__card">
-                    <div class="menu__card-header">
-                        <i class="fas fa-utensils menu__icon"></i>
-                        <h3 class="menu__card-title">Plats Traditionnels</h3>
+                    <div class="menu__card">
+                        <div class="menu__card-header">
+                            <i class="fas fa-utensils menu__icon"></i>
+                            <div class="menu__card-title">Plats Traditionnels</div>
+                        </div>
+                        <ul class="menu__list">
+                            <li>Tagine de poulet <span>15.00€</span></li>
+                            <li>Couscous Royal <span>18.00€</span></li>
+                            <li>Pastilla aux fruits de mer <span>16.00€</span></li>
+                        </ul>
                     </div>
-                    <ul class="menu__list">
-                        <li>Tagine de poulet au citron confit <span>15.00€</span></li>
-                        <li>Couscous Royal (Vendredi) <span>18.00€</span></li>
-                        <li>Pastilla aux fruits de mer <span>16.00€</span></li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- GALERIE -->
         <section class="gallery section" id="gallery">
-            <h2 class="section__title">Galerie</h2>
-            <div class="gallery__container container grid">
-                <img src="https://imgs.search.brave.com/febjDI8SCKNfh0_rNR2BuGqMit3ATekt7j7-csfAfQ8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2RiLzk1/L2QxL2RiOTVkMTBi/YjU0OWEwMzA3YWY5/MTVjM2Y1MWEyOGE2/LmpwZw" alt="Décoration marocaine du café" class="gallery__img" loading="lazy">
-                <img src="https://imgs.search.brave.com/iVUQiAWvqYgXm3vfoxQrOJ70kmeG8uNiQUrnj4j-Aek/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tYWNv/bGxlY3Rpb25ib2hl/bWUuZnIvOTYwLWhv/bWVfZGVmYXVsdC9w/ZXRpdGUtYm91Z2ll/LXZlcnRlLW1lbnRo/ZS1ldC10aGUuanBn" alt="Préparation du thé à la menthe" class="gallery__img" loading="lazy">
-                <img src="https://imgs.search.brave.com/PUDzzYyw9DItmWK-CHKqr8KK3v9Moi74ELDI-ZU2sIU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdDQu/ZGVwb3NpdHBob3Rv/cy5jb20vNzE0NDY1/Mi80MDU2MS9pLzYw/MC9kZXBvc2l0cGhv/dG9zXzQwNTYxOTk4/Mi1zdG9jay1waG90/by10cmFkaXRpb25h/bC1tb3JvY2Nhbi1t/aW50LXRlYS1jb29r/aWVzLmpwZw" alt="Plat de tagine servi" class="gallery__img" loading="lazy">
-                <img src="https://imgs.search.brave.com/wEOto9Lh-uNFjaTI0t-G6ath9ICTKXQp_uq_rVhkvGQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9oNy5h/bGFteS5jb20vY29t/cGZyL2poMjUxZi90/aGUtYS1sYS1tZW50/aGUtbWFyb2NhaW4t/dHJhZGl0aW9ubmVs/LWV0LWRlLXBhdGlz/c2VyaWVzLWxhLWZy/YW5jZS1qaDI1MWYu/anBn" alt="Assortiment de pâtisseries marocaines" class="gallery__img" loading="lazy">
-                <img src="https://imgs.search.brave.com/J9JlvmwIFax6H6oWObm2_hJzZoouDcwbkl5xUWUvZvg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tYW1v/dW5pYS5jb20vbWVk/aWEvY2FjaGUvamFk/cm9fcmVzaXplL3Jj/L3VucXpqME5iMTc1/ODgwOTYxNS9qYWRy/b1Jvb3QvbWVkaWFz/LzY1M2ZjZWUxNTQ0/NjcvNjUzZmNlZjlh/MDUwYS82NTNmZDBm/MmM3Y2JjLzY1M2Zk/MTU4MTk1NTkvbGUt/bWFyb2NhaW4tamFy/ZGluLTItLmpwZWc" alt="Ambiance chaleureuse en soirée" class="gallery__img" loading="lazy">
-                <img src="https://imgs.search.brave.com/GoXlZGKlmU6TNE_K-NzjEfpzdUOv6p-YH3w7k-1xpEM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9saDMu/Z29vZ2xldXNlcmNv/bnRlbnQuY29tL3Av/QUYxUWlwTUM4bXla/eWtHNmJGTU5xTXYx/QkJSZkZIa01RdVk0/WVFVaFAyaHo9czE2/MDAtdzY0MA" alt="Détail de mosaïque zellige" class="gallery__img" loading="lazy">
+            <div class="container">
+                <div class="section__title">Galerie</div>
+                <div class="gallery__container">
+                    <div class="gallery__img">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&h=500&fit=crop" loading="lazy">
+                    </div>
+                    <div class="gallery__img">
+                        <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&h=500&fit=crop" loading="lazy">
+                    </div>
+                    <div class="gallery__img">
+                        <img src="https://images.unsplash.com/photo-1601897704119-ccb0d9b8876f?w=500&h=500&fit=crop" loading="lazy">
+                    </div>
+                    <div class="gallery__img">
+                        <img src="https://images.unsplash.com/photo-1587132117449-609a5494f50c?w=500&h=500&fit=crop" loading="lazy">
+                    </div>
+                    <div class="gallery__img">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=500&h=500&fit=crop" loading="lazy">
+                    </div>
+                    <div class="gallery__img">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=500&fit=crop" loading="lazy">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- RÉSERVATION -->
         <section class="booking section" id="booking">
-            <h2 class="section__title">Réservez Votre Table</h2>
-            <div class="booking__container container">
-                <form action="#" class="booking__form">
+            <div class="container">
+                <div class="section__title">Réservez Votre Table</div>
+                <form class="booking__form" id="booking-form">
+                    <div class="form__success" id="form-success">
+                        ✓ Votre réservation a été envoyée avec succès!
+                    </div>
                     <div class="form__group">
                         <label for="date">Date</label>
                         <input type="date" id="date" required>
+                        <span class="form__error" id="date-error">Veuillez sélectionner une date</span>
                     </div>
                     <div class="form__group">
                         <label for="time">Heure</label>
                         <input type="time" id="time" required>
+                        <span class="form__error" id="time-error">Veuillez sélectionner une heure</span>
                     </div>
                     <div class="form__group">
                         <label for="people">Nombre de personnes</label>
                         <input type="number" id="people" min="1" max="10" required>
+                        <span class="form__error" id="people-error">Entre 1 et 10 personnes</span>
                     </div>
                     <div class="form__group">
                         <label for="name">Nom</label>
                         <input type="text" id="name" required>
+                        <span class="form__error" id="name-error">Veuillez entrer votre nom</span>
                     </div>
                     <div class="form__group">
                         <label for="email">Email</label>
                         <input type="email" id="email" required>
+                        <span class="form__error" id="email-error">Veuillez entrer un email valide</span>
                     </div>
                     <button type="submit" class="button">Confirmer la réservation</button>
                 </form>
@@ -164,39 +814,248 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox__content">
+            <button class="lightbox__close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" id="lightbox-img">
+        </div>
+    </div>
+
     <footer class="footer">
-        <div class="footer__container container grid">
+        <div class="footer__container">
             <div class="footer__content">
-                <h3 class="footer__title">Horaires</h3>
-                <p>Mardi - Dimanche</p>
-                <p>10:00 - 23:00</p>
+                <div class="footer__title">Horaires</div>
+                <div>Mardi - Dimanche</div>
+                <div>10:00 - 23:00</div>
+                <div style="margin-top: 1rem; opacity: 0.8;">Fermé le lundi</div>
             </div>
             <div class="footer__content">
-                <h3 class="footer__title">Adresse</h3>
-                <p>123 Rue de l'Atlas, 75000 Paris</p>
-                <!-- Placeholder pour Google Maps -->
-            </div>
-            <div class="footer__content">
-                <h3 class="footer__title">Suivez-nous</h3>
-                <div class="footer__social">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                <div class="footer__title">Adresse</div>
+                <div>123 Rue de l'Atlas</div>
+                <div>75000 Paris, France</div>
+                <div style="margin-top: 1rem;">
+                    <i class="fas fa-phone"></i> +33 1 23 45 67 89
                 </div>
             </div>
             <div class="footer__content">
-                <h3 class="footer__title">Newsletter</h3>
-                <form class="footer__form">
-                    <input type="email" placeholder="Votre email">
-                    <button type="submit" class="button--flex"><i class="fas fa-paper-plane"></i></button>
+                <div class="footer__title">Suivez-nous</div>
+                <div class="footer__social">
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content">
+                <div class="footer__title">Newsletter</div>
+                <div style="margin-bottom: 1rem; font-size: 0.9rem;">Recevez nos offres exclusives</div>
+                <form class="footer__form" id="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </form>
             </div>
         </div>
-        <p class="footer__copy">&#169; 2025 Riad du Café. Tous droits réservés.</p>
+        <div class="footer__copy">© 2025 Riad du Café. Tous droits réservés.</div>
     </footer>
 
-    <!-- JS -->
-    <script src="script.js"></script>
+    <script>
+        // Menu mobile
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav__link');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show-menu');
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
+        });
+
+        // Smooth scroll avec offset pour le header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Lightbox galerie
+        const galleryImages = document.querySelectorAll('.gallery__img img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fermer lightbox avec Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // Validation formulaire de réservation
+        const bookingForm = document.getElementById('booking-form');
+        const formSuccess = document.getElementById('form-success');
+
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset erreurs
+            document.querySelectorAll('.form__error').forEach(error => {
+                error.style.display = 'none';
+            });
+
+            let isValid = true;
+
+            // Validation date
+            const dateInput = document.getElementById('date');
+            const selectedDate = new Date(dateInput.value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (!dateInput.value || selectedDate < today) {
+                document.getElementById('date-error').style.display = 'block';
+                document.getElementById('date-error').textContent = 'Veuillez sélectionner une date future';
+                isValid = false;
+            }
+
+            // Validation heure
+            const timeInput = document.getElementById('time');
+            if (!timeInput.value) {
+                document.getElementById('time-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation nombre de personnes
+            const peopleInput = document.getElementById('people');
+            if (!peopleInput.value || peopleInput.value < 1 || peopleInput.value > 10) {
+                document.getElementById('people-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validation nom
+            const nameInput = document.getElementById('name');
+            if (!nameInput.value || nameInput.value.trim().length < 2) {
+                document.getElementById('name-error').style.display = 'block';
+                document.getElementById('name-error').textContent = 'Veuillez entrer un nom valide (min 2 caractères)';
+                isValid = false;
+            }
+
+            // Validation email
+            const emailInput = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailInput.value || !emailRegex.test(emailInput.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Afficher message de succès
+                formSuccess.style.display = 'block';
+                
+                // Simuler l'envoi
+                console.log('Réservation envoyée:', {
+                    date: dateInput.value,
+                    time: timeInput.value,
+                    people: peopleInput.value,
+                    name: nameInput.value,
+                    email: emailInput.value
+                });
+
+                // Reset formulaire après 2 secondes
+                setTimeout(() => {
+                    bookingForm.reset();
+                    formSuccess.style.display = 'none';
+                }, 3000);
+
+                // Scroll vers le message de succès
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+
+        // Newsletter
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            
+            if (emailInput.value) {
+                alert('Merci de votre inscription à notre newsletter!');
+                emailInput.value = '';
+            }
+        });
+
+        // Animation au scroll (fade-in elements)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer les cartes menu et images galerie
+        document.querySelectorAll('.menu__card, .gallery__img').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Définir date minimum (aujourd'hui) pour le formulaire
+        const dateInputForm = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInputForm.setAttribute('min', today);
+    </script>
 </body>
 </html>
