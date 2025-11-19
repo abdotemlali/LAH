@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riad du Café - L'Art du Café Marocain Authentique</title>
+    <meta name="description" content="Découvrez le Riad du Café, un café-restaurant marocain alliant tradition et modernité. Savourez nos spécialités et réservez votre table en ligne.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Riad du Café</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#about" class="nav__link">À Propos</a></li>
+                    <li class="nav__item"><a href="#menu" class="nav__link">Menu</a></li>
+                    <li class="nav__item"><a href="#gallery" class="nav__link">Galerie</a></li>
+                    <li class="nav__item"><a href="#booking" class="nav__link">Réservation</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero__container container">
+                <h1 class="hero__title">L'Art du Café Marocain Authentique</h1>
+                <p class="hero__subtitle">Une immersion sensorielle au cœur de la tradition marocaine.</p>
+                <a href="#booking" class="button">Réserver une table</a>
+            </div>
+        </section>
+
+        <!-- À PROPOS -->
+        <section class="about section" id="about">
+            <div class="about__container container grid">
+                <div class="about__data">
+                    <h2 class="section__title">Notre Histoire</h2>
+                    <p class="about__description">
+                        Né d'une passion pour l'hospitalité marocaine et l'arôme envoûtant du café, le Riad du Café est un havre de paix où tradition et modernité se rencontrent. Notre mission est de vous offrir une expérience inoubliable, un voyage gustatif au cœur du Maroc.
+                    </p>
+                    <p class="about__description">
+                        Nous sélectionnons avec soin des ingrédients locaux de première qualité pour vous garantir des saveurs authentiques. Chaque plat, chaque boisson est une célébration de notre héritage culinaire.
+                    </p>
+                </div>
+                <div class="about__img">
+                    <img src="https://via.placeholder.com/500x400.png?text=Intérieur+du+Riad" alt="Intérieur moderne du Riad du Café" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU -->
+        <section class="menu section" id="menu">
+            <h2 class="section__title">Notre Menu</h2>
+            <div class="menu__container container grid">
+                <!-- Catégorie 1: Cafés -->
+                <div class="menu__card">
+                    <div class="menu__card-header">
+                        <i class="fas fa-coffee menu__icon"></i>
+                        <h3 class="menu__card-title">Cafés Spéciaux</h3>
+                    </div>
+                    <ul class="menu__list">
+                        <li>Café Nous-Nous <span>3.50€</span></li>
+                        <li>Café aux épices (cannelle, cardamome) <span>4.00€</span></li>
+                        <li>Expresso Royal (avec une touche d'eau de fleur d'oranger) <span>4.50€</span></li>
+                    </ul>
+                </div>
+                <!-- Catégorie 2: Thés -->
+                <div class="menu__card">
+                    <div class="menu__card-header">
+                        <i class="fas fa-leaf menu__icon"></i>
+                        <h3 class="menu__card-title">Thés Marocains</h3>
+                    </div>
+                    <ul class="menu__list">
+                        <li>Thé à la menthe traditionnel <span>3.00€</span></li>
+                        <li>Thé vert à l'absinthe <span>3.50€</span></li>
+                        <li>Infusion verveine & citronnelle <span>3.50€</span></li>
+                    </ul>
+                </div>
+                <!-- Catégorie 3: Pâtisseries -->
+                <div class="menu__card">
+                     <div class="menu__card-header">
+                        <i class="fas fa-cookie-bite menu__icon"></i>
+                        <h3 class="menu__card-title">Pâtisseries Fines</h3>
+                    </div>
+                    <ul class="menu__list">
+                        <li>Corne de gazelle <span>2.00€</span></li>
+                        <li>Ghriba aux amandes <span>1.50€</span></li>
+                        <li>Chebakia au miel et sésame <span>2.50€</span></li>
+                    </ul>
+                </div>
+                <!-- Catégorie 4: Plats -->
+                <div class="menu__card">
+                    <div class="menu__card-header">
+                        <i class="fas fa-utensils menu__icon"></i>
+                        <h3 class="menu__card-title">Plats Traditionnels</h3>
+                    </div>
+                    <ul class="menu__list">
+                        <li>Tagine de poulet au citron confit <span>15.00€</span></li>
+                        <li>Couscous Royal (Vendredi) <span>18.00€</span></li>
+                        <li>Pastilla aux fruits de mer <span>16.00€</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERIE -->
+        <section class="gallery section" id="gallery">
+            <h2 class="section__title">Galerie</h2>
+            <div class="gallery__container container grid">
+                <img src="https://imgs.search.brave.com/febjDI8SCKNfh0_rNR2BuGqMit3ATekt7j7-csfAfQ8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2RiLzk1/L2QxL2RiOTVkMTBi/YjU0OWEwMzA3YWY5/MTVjM2Y1MWEyOGE2/LmpwZw" alt="Décoration marocaine du café" class="gallery__img" loading="lazy">
+                <img src="https://imgs.search.brave.com/iVUQiAWvqYgXm3vfoxQrOJ70kmeG8uNiQUrnj4j-Aek/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tYWNv/bGxlY3Rpb25ib2hl/bWUuZnIvOTYwLWhv/bWVfZGVmYXVsdC9w/ZXRpdGUtYm91Z2ll/LXZlcnRlLW1lbnRo/ZS1ldC10aGUuanBn" alt="Préparation du thé à la menthe" class="gallery__img" loading="lazy">
+                <img src="https://imgs.search.brave.com/PUDzzYyw9DItmWK-CHKqr8KK3v9Moi74ELDI-ZU2sIU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdDQu/ZGVwb3NpdHBob3Rv/cy5jb20vNzE0NDY1/Mi80MDU2MS9pLzYw/MC9kZXBvc2l0cGhv/dG9zXzQwNTYxOTk4/Mi1zdG9jay1waG90/by10cmFkaXRpb25h/bC1tb3JvY2Nhbi1t/aW50LXRlYS1jb29r/aWVzLmpwZw" alt="Plat de tagine servi" class="gallery__img" loading="lazy">
+                <img src="https://imgs.search.brave.com/wEOto9Lh-uNFjaTI0t-G6ath9ICTKXQp_uq_rVhkvGQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9oNy5h/bGFteS5jb20vY29t/cGZyL2poMjUxZi90/aGUtYS1sYS1tZW50/aGUtbWFyb2NhaW4t/dHJhZGl0aW9ubmVs/LWV0LWRlLXBhdGlz/c2VyaWVzLWxhLWZy/YW5jZS1qaDI1MWYu/anBn" alt="Assortiment de pâtisseries marocaines" class="gallery__img" loading="lazy">
+                <img src="https://imgs.search.brave.com/J9JlvmwIFax6H6oWObm2_hJzZoouDcwbkl5xUWUvZvg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tYW1v/dW5pYS5jb20vbWVk/aWEvY2FjaGUvamFk/cm9fcmVzaXplL3Jj/L3VucXpqME5iMTc1/ODgwOTYxNS9qYWRy/b1Jvb3QvbWVkaWFz/LzY1M2ZjZWUxNTQ0/NjcvNjUzZmNlZjlh/MDUwYS82NTNmZDBm/MmM3Y2JjLzY1M2Zk/MTU4MTk1NTkvbGUt/bWFyb2NhaW4tamFy/ZGluLTItLmpwZWc" alt="Ambiance chaleureuse en soirée" class="gallery__img" loading="lazy">
+                <img src="https://imgs.search.brave.com/GoXlZGKlmU6TNE_K-NzjEfpzdUOv6p-YH3w7k-1xpEM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9saDMu/Z29vZ2xldXNlcmNv/bnRlbnQuY29tL3Av/QUYxUWlwTUM4bXla/eWtHNmJGTU5xTXYx/QkJSZkZIa01RdVk0/WVFVaFAyaHo9czE2/MDAtdzY0MA" alt="Détail de mosaïque zellige" class="gallery__img" loading="lazy">
+            </div>
+        </section>
+
+        <!-- RÉSERVATION -->
+        <section class="booking section" id="booking">
+            <h2 class="section__title">Réservez Votre Table</h2>
+            <div class="booking__container container">
+                <form action="#" class="booking__form">
+                    <div class="form__group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="time">Heure</label>
+                        <input type="time" id="time" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="people">Nombre de personnes</label>
+                        <input type="number" id="people" min="1" max="10" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <button type="submit" class="button">Confirmer la réservation</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Horaires</h3>
+                <p>Mardi - Dimanche</p>
+                <p>10:00 - 23:00</p>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Adresse</h3>
+                <p>123 Rue de l'Atlas, 75000 Paris</p>
+                <!-- Placeholder pour Google Maps -->
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Suivez-nous</h3>
+                <div class="footer__social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Newsletter</h3>
+                <form class="footer__form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit" class="button--flex"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2025 Riad du Café. Tous droits réservés.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>

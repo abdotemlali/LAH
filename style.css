@@ -1,0 +1,426 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600;800&display=swap');
+
+/* VARIABLES CSS */
+:root {
+    --header-height: 3.5rem;
+
+    /* Colors */
+    --terre-cuite: #A0522D;
+    --sable: #F4A460;
+    --bleu-majorelle: #5680E9;
+    --blanc-casse: #F5F5F5;
+    --dore: #D4AF37;
+    --brun-fonce: #3E2723;
+    --white-color: #FFF;
+
+    /* Typography */
+    --body-font: 'Montserrat', sans-serif;
+    --title-font: 'Poppins', serif;
+    --biggest-font-size: 2.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+
+    /* Font weight */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /* Margins */
+    --mb-0-5: .5rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+
+    /* z-index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/* BASE */
+*,::before,::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--blanc-casse);
+    color: var(--brun-fonce);
+}
+
+h1, h2, h3 {
+    font-family: var(--title-font);
+    font-weight: var(--font-semi-bold);
+    color: var(--brun-fonce);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* REUSABLE CSS CLASSES */
+.section {
+    padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h2-font-size);
+    color: var(--terre-cuite);
+    text-align: center;
+    margin-bottom: var(--mb-2);
+    text-transform: uppercase;
+}
+
+.container {
+    max-width: 968px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--terre-cuite);
+    color: var(--white-color);
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+    transition: .3s;
+    border: 2px solid transparent;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: var(--terre-cuite);
+    border-color: var(--terre-cuite);
+}
+
+/* HEADER & NAV */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    transition: .4s;
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    color: var(--terre-cuite);
+    font-weight: var(--font-bold);
+    font-family: var(--title-font);
+}
+
+@media screen and (max-width: 767px) {
+    .nav__menu {
+        position: fixed;
+        background-color: var(--blanc-casse);
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding: 4rem 0 3rem;
+        transition: .4s;
+    }
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav__link {
+    color: var(--brun-fonce);
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+
+.nav__link:hover {
+    color: var(--sable);
+}
+
+.nav__toggle {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.show-menu {
+    top: 0;
+}
+
+/* Change background header */
+.scroll-header {
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+
+/* HERO */
+.hero {
+    background-image: url('https://via.placeholder.com/1920x1080.png?text=Riad+du+Café+Ambiance'), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero__container {
+    color: var(--white-color);
+}
+
+.hero__title {
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-bold);
+    color: var(--white-color);
+    margin-bottom: var(--mb-1);
+}
+
+.hero__subtitle {
+    margin-bottom: var(--mb-2);
+}
+
+/* ABOUT */
+.about__container {
+    align-items: center;
+}
+
+.about__img img {
+    border-radius: .5rem;
+}
+
+.about__description {
+    margin-bottom: var(--mb-1);
+    line-height: 1.6;
+}
+
+/* MENU */
+.menu__container {
+    padding-top: 1rem;
+}
+
+.menu__card {
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    border-radius: .5rem;
+    border: 2px solid transparent;
+    transition: .3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    border-left: 5px solid var(--sable);
+}
+
+.menu__card:hover {
+    transform: translateY(-5px);
+    border-color: var(--dore);
+}
+
+.menu__card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-1);
+}
+
+.menu__icon {
+    font-size: 1.5rem;
+    color: var(--terre-cuite);
+    margin-right: var(--mb-0-5);
+}
+
+.menu__card-title {
+    font-size: var(--h3-font-size);
+}
+
+.menu__list li {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+/* GALLERY */
+.gallery__container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.gallery__img {
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gallery__img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
+}
+
+/* BOOKING */
+.booking__form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__group label {
+    margin-bottom: var(--mb-0-5);
+    font-weight: var(--font-medium);
+}
+
+.form__group input {
+    padding: .75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    font-family: var(--body-font);
+}
+
+.booking__form .button {
+    width: 100%;
+    justify-content: center;
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--brun-fonce);
+    color: var(--blanc-casse);
+    padding: 4rem 0 2rem;
+}
+
+.footer__container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer__title {
+    color: var(--sable);
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.footer__social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer__social a {
+    color: var(--blanc-casse);
+    font-size: 1.25rem;
+    transition: .3s;
+}
+
+.footer__social a:hover {
+    color: var(--dore);
+}
+
+.footer__form {
+    display: flex;
+}
+
+.footer__form input {
+    width: 100%;
+    padding: .75rem;
+    border: none;
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.footer__form .button--flex {
+    background-color: var(--terre-cuite);
+    border: none;
+    padding: 0 1rem;
+    border-radius: 0 .5rem .5rem 0;
+    cursor: pointer;
+}
+.footer__form .button--flex i {
+    color: var(--white-color);
+}
+
+.footer__copy {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: var(--small-font-size);
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 768px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+    }
+
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+    }
+
+    .nav__list {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .nav__toggle {
+        display: none;
+    }
+
+    .about__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .booking__form {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .booking__form .form__group:nth-child(4),
+    .booking__form .form__group:nth-child(5),
+    .booking__form .button {
+        grid-column: 1 / 3;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
